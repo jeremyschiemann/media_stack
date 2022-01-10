@@ -1,5 +1,6 @@
 services:
-  VCR:
+  vcr:
+    container_name: VCR
     image: vcr:latest # local image
     network_mode: bridge
     environment:
@@ -8,7 +9,8 @@ services:
       - VBOX_IP=${VBOX_IP}
       - SLEEPTIME=${VBOX_SLEEPTIME}
 
-  xTeVe:
+  xteve:
+    container_name: xTeVe
     image: bl0m1/xtevedocker:latest
     network_mode: bridge
     volumes:
