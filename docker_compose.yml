@@ -1,9 +1,18 @@
 services:
-  vcr:
+  VCR:
     image: vcr:latest # local image
     network_mode: bridge
     environment:
       - VBOX_USERNAME=${VBOX_USERNAME}
       - VBOX_PASSWORD=${VBOX_PASSWORD}
       - VBOX_IP=${VBOX_IP}
-      - SLEEPTIME=${SLEEPTIME}
+      - SLEEPTIME=${VBOX_SLEEPTIME}
+
+  xTeVe:
+    image: bl0m1/xtevedocker:latest	
+    network_mode: bridge
+    volumes:
+      - %{XTEVE_CONFIG_PATH}:/home/xteve/.xteve
+    ports:
+      - "${XTEVE_PORT}:34400"
+    
