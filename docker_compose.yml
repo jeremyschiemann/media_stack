@@ -12,7 +12,7 @@ services:
     image: bl0m1/xtevedocker:latest	
     network_mode: bridge
     volumes:
-      - %{XTEVE_CONFIG_PATH}:/home/xteve/.xteve
+      - ${XTEVE_CONFIG_PATH}:/home/xteve/.xteve
     ports:
       - "${XTEVE_PORT}:34400"
     
