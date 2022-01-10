@@ -21,6 +21,7 @@ services:
   plex:
     image: linuxserver/plex:latest
     network_mode: host
+    command: --device=/dev/dri:/dev/dri --log-opt max-size=1m
     environment:
       - PUID=${PLEX_PUID}
     volumes:
@@ -33,5 +34,7 @@ services:
       - type: bind
         source: ${PLEX_MEDIA_PATH}
         target: /media
-
+      - type: bind
+        source: /etc/localtime
+        target: /etc/localtime
    
