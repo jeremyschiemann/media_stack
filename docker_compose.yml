@@ -33,3 +33,14 @@ services:
     volumes:
       - type: bind
         source: /tmp
+        target: /transcode
+      - type: bind
+        source: ${PLEX_CONFIG_PATH}
+        target: /config
+      - type: bind
+        source: ${PLEX_MEDIA_PATH}
+        target: /media
+      - type: bind
+        source: /etc/localtime
+        target: /etc/localtime
+   
