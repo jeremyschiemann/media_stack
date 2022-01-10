@@ -1,6 +1,6 @@
 services:
   vcr:
-    container_name: ${STACK_NAME}_VCR
+    container_name: VCR
     image: vcr:latest # local image
     network_mode: bridge
     environment:
