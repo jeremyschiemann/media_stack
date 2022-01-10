@@ -1,46 +1,15 @@
 services:
-  vcr:
-    image: vcr:latest # local image
-    network_mode: bridge
-    environment:
-      - VBOX_USERNAME=${VBOX_USERNAME}
-      - VBOX_PASSWORD=${VBOX_PASSWORD}
-      - VBOX_IP=${VBOX_IP}
-      - SLEEPTIME=${VBOX_SLEEPTIME}
+
 
   xteve:
     image: bl0m1/xtevedocker:latest
     network_mode: host
     volumes:
       - type: bind
-        source: ${XTEVE_CONFIG_PATH}
+        source: /srv/dev-disk-by-label-SSD/Configs/xteve
         target: /home/xteve/.xteve
     ports:
-      - "${XTEVE_PORT}:34400/tcp"
-      - "${XTEVE_PORT}:34400/udp"
+      - "34400:34400/tcp"
+      - "34400:34400/udp"
     
-  plex:
-    image: linuxserver/plex:latest
-    network_mode: host
-    devices: 
-      - ${PLEX_HW_DEVICE}
-    logging:
-      options:
-        max-size: ${PLEX_MAX_LOG_SIZE}
-    environment:
-      - PUID=${PLEX_PUID}
-      - PGID=${PLEX_PGID}
-    volumes:
-      - type: bind
-        source: /tmp
-        target: /transcode
-      - type: bind
-        source: ${PLEX_CONFIG_PATH}
-        target: /config
-      - type: bind
-        source: ${PLEX_MEDIA_PATH}
-        target: /media
-      - type: bind
-        source: /etc/localtime
-        target: /etc/localtime
-   
+ 
