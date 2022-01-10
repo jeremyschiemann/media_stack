@@ -24,6 +24,7 @@ services:
     command: --device=/dev/dri:/dev/dri --log-opt max-size=1m
     environment:
       - PUID=${PLEX_PUID}
+      - PGID=${PLEX_PGID}
     volumes:
       - type: bind
         source: /tmp
