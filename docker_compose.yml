@@ -14,7 +14,7 @@ services:
     volumes:
       - type: bind
         source: ${XTEVE_CONFIG_PATH}
-        target: /home/xteve/.xteve"
+        target: /home/xteve/.xteve
     ports:
       - "${XTEVE_PORT}:34400"
     
