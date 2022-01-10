@@ -21,8 +21,11 @@ services:
   plex:
     image: linuxserver/plex:latest
     network_mode: host
-    device´: /dev/dri:/dev/dri
-    log-opt: max-size=1m
+    devices: 
+      - ${PLEX_HW_DEVICE}
+    logging:
+      options:
+        max-size: ${PLEX_MAX_LOG_SIZE}
     environment:
       - PUID=${PLEX_PUID}
       - PGID=${PLEX_PGID}
