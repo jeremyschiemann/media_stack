@@ -9,7 +9,7 @@ services:
       - SLEEPTIME=${VBOX_SLEEPTIME}
 
   xTeVe:
-    image: bl0m1/xtevedocker:latest	
+    image: bl0m1/xtevedocker:latest
     network_mode: bridge
     volumes:
       - type: bind
