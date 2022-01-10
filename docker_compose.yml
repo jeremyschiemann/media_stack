@@ -7,7 +7,7 @@ services:
       - VBOX_PASSWORD=${VBOX_PASSWORD}
       - VBOX_IP=${VBOX_IP}
       - SLEEPTIME=${VBOX_SLEEPTIME}
-     restart: unless-stopped
+    restart: unless-stopped
 
   xteve:
     image: bl0m1/xtevedocker:latest
