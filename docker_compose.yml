@@ -10,7 +10,7 @@ services:
 
   xteve:
     image: bl0m1/xtevedocker:latest
-    network_mode: bridge
+    network_mode: host
     volumes:
       - type: bind
         source: ${XTEVE_CONFIG_PATH}
