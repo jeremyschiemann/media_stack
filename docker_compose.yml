@@ -1,0 +1,4 @@
+services:
+  vcr:
+    image: vcr:latest # local image
+    network_mode: bridge
