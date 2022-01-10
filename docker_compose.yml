@@ -16,7 +16,8 @@ services:
         source: ${XTEVE_CONFIG_PATH}
         target: /home/xteve/.xteve
     ports:
-      - "${XTEVE_PORT}:34400"
+      - "${XTEVE_PORT}:34400/tcp"
+      - "${XTEVE_PORT}:34400/udp"
     
   plex:
     image: linuxserver/plex:latest
