@@ -11,7 +11,6 @@ services:
 
   xteve:
     image: bl0m1/xtevedocker:latest
-    network_mode: host
     volumes:
       - type: bind
         source: ${XTEVE_CONFIG_PATH}
@@ -19,11 +18,12 @@ services:
     ports:
       - "${XTEVE_PORT}:34400/tcp"
       - "${XTEVE_PORT}:34400/udp"
+    networks:
+      - media_network
     restart: unless-stopped
 
   plex:
     image: linuxserver/plex:latest
-    network_mode: host
     devices: 
       - ${PLEX_HW_DEVICE}
     logging:
@@ -33,6 +33,10 @@ services:
       - PUID=${PLEX_PUID}
       - PGID=${PLEX_PGID}
     restart: unless-stopped
+    networks:
+      - media_network
+    links:
+      - "xteve:xteve"
     volumes:
       - type: bind
         source: /tmp
@@ -47,3 +51,7 @@ services:
         source: /etc/localtime
         target: /etc/localtime
    
+networks:
+  media_network:
+    external: false
+    name: media_network
