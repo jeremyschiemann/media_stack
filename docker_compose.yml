@@ -32,6 +32,7 @@ services:
       - PUID=${PLEX_PUID}
       - PGID=${PLEX_PGID}
       - TZ=Europe/Berlin
+      - ADVERTISE_IP="192.168.1.254:32400
     restart: unless-stopped
     networks:
       - media_network
