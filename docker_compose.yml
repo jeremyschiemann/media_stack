@@ -1,7 +1,9 @@
 services:
   vcr:
-    image: vcr:latest # local image
-    network_mode: bridge
+    build: github.com/jeremyschiemann/vbox-service-restarter.git
+    image: vcr
+    networks:
+      - media_network
     environment:
       - VBOX_USERNAME=${VBOX_USERNAME}
       - VBOX_PASSWORD=${VBOX_PASSWORD}
