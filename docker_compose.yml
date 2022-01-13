@@ -35,6 +35,7 @@ services:
       - PGID=${PLEX_PGID}
       - TZ=Europe/Berlin
       - ADVERTISE_IP=${PLEX_ADVERTISE_IP}
+      - VERSION=latest
     restart: unless-stopped
     networks:
       - media_network
