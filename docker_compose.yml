@@ -1,6 +1,6 @@
 services:
   vcr:
-    build: github.com/jeremyschiemann/vbox-service-restarter.git#main
+    build: github.com/jeremyschiemann/vbox-service-restarter-rs.git#main
     image: vcr
     networks:
       - media_network
