@@ -1,7 +1,7 @@
 services:
   vcr:
     build: github.com/jeremyschiemann/vbox-service-restarter-rs.git#main
-    image: vcr
+    image: vcr-rs
     networks:
       - media_network
     environment:
