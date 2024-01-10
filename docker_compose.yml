@@ -4,7 +4,7 @@ services:
       context: https://github.com/jeremyschiemann/vbox-service-restarter-rs.git#main
       tags: 
         - vcr-rs:latest
-    image: vcr-rs:latest
+    # image: vcr-rs:latest
     networks:
       - media_network
     environment:
