@@ -24,8 +24,8 @@ services:
         source: ${XTEVE_CONFIG_PATH}/_config
         target: /config
       - type: bind
-        source: /tmp
-        target: /tmp
+        source: /tmp/xteve
+        target: /tmp/xteve
     ports:
       - "${XTEVE_PORT}:34400/tcp"
     networks:
